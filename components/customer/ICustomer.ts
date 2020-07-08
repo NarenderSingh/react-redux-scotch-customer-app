@@ -23,7 +23,4 @@ export interface IAddCustomerProps {
 }
 
 export interface ICustomerListProps {
-  customers: any,
-  deleteCustomer: any,
-  editCustomer: any
 }

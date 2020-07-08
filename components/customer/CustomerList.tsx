@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ICustomer, ICustomerListProps } from './ICustomer';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -10,9 +10,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import EditIcon from '@material-ui/icons/Edit';
+import { CustomerContext } from './Customer';
 
 const CustomerList = (props: ICustomerListProps) => {
-  const { customers, deleteCustomer, editCustomer } = props;
+  const customerContext: any = useContext(CustomerContext);
+  const { customers, editCustomer, deleteCustomer } = customerContext;
+
   const { customerList } = customers;
   const [data, setData] = useState(customerList);
   const [search, setSearch] = useState('');
